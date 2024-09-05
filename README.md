@@ -1,4 +1,4 @@
-# my-strength-workouts-tracker
+# my-workouts-tracker
 
 ## TODOs
 - [ ] add workouts
