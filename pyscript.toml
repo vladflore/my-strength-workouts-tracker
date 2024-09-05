@@ -3,4 +3,4 @@ description = ""
 packages = ["matplotlib", "pandas"]
 
 [files]
-"../workouts.csv" = "workouts.csv"
+"./workouts.csv" = "workouts.csv"
