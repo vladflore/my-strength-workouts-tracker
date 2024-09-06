@@ -3,7 +3,7 @@ date,exercise,sets,reps,weight
 16/07/2024,lat pull-down,3,6,50
 16/07/2024,military press,3,8,10
 16/07/2024,squat,3,8,20
-16/07/2024,seated hamstring curl,3,8,40
+16/07/2024,seated hamstring curl machine,3,8,40
 18/07/2024,american kettlebell swing,3,7,16
 23/07/2024,bench press,3,6,50
 23/07/2024,lat pull-down,3,8,45
@@ -15,7 +15,7 @@ date,exercise,sets,reps,weight
 23/07/2024,dumbbell lateral fly,3,10,5
 24/07/2024,squat,3,8,16
 24/07/2024,bulgarian split squat,3,6,16
-24/07/2024,seated hamstring curl,4,8,40
+24/07/2024,seated hamstring curl machine,4,8,40
 24/07/2024,hip thrust w/ dumbbell,4,8,20
 24/07/2024,hip abduction,4,8,60
 24/07/2024,hip adduction,4,8,50
@@ -55,3 +55,40 @@ date,exercise,sets,reps,weight
 14/08/2024,squat,4,6,16
 14/08/2024,rear lunge,3,10,7.5
 14/08/2024,american kettlebell swing,3,10,16
+26/08/2024,bench press,3,8,50
+26/08/2024,bench press,1,8,55
+26/08/2024,incline bar press,4,5,30
+26/08/2024,lat pull-down,4,8,50
+26/08/2024,bent over row w/ bar,1,8,35
+26/08/2024,bent over row w/ bar,3,8,37.5
+26/08/2024,seated cable row,3,8,40
+26/08/2024,dumbbell row,3,8,17.5
+26/08/2024,forward lunge,3,20,12
+26/08/2024,hip abduction,3,10,60
+26/08/2024,hip adduction,3,10,50
+26/08/2024,calf raise,4,10,16
+26/08/2024,deficit bulgarian split squat,2,20,12
+28/08/2024,military press,4,8,30
+28/08/2024,arnold press,3,8,10
+28/08/2024,dumbbell front raise,3,6,5
+28/08/2024,dumbbell lateral fly,3,6,5
+28/08/2024,dumbbell rear fly,3,6,5
+28/08/2024,squat,3,10,12
+28/08/2024,spanish squat,3,10,5
+28/08/2024,rear lunge,3,20,7.5
+02/09/2024,bench press,1,8,50
+02/09/2024,bench press,3,8,55
+02/09/2024,incline bar press,1,8,30
+02/09/2024,incline bar press,3,8,35
+02/09/2024,lat pull-down,4,8,50
+02/09/2024,bent over row w/ bar,1,8,30
+02/09/2024,bent over row w/ bar,3,8,40
+02/09/2024,seated cable row,3,8,40
+02/09/2024,dumbbell row,3,8,20
+02/09/2024,hammer curl,4,10,10
+02/09/2024,dumbbell lateral fly,4,10,5
+04/09/2024,squats,3,10,20
+04/09/2024,spanish squat,3,10,5
+04/09/2024,rear lunge,3,20,7.5
+04/09/2024,seated hamstring curl machine,3,10,50
+04/09/2024,calf raise,3,10,7.5
