@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.colors as mcolors
 
 from pyscript import display, document
+from pyodide.ffi import create_proxy
 
 working_element = document.querySelector("#working")
 start_date_element = document.querySelector("#start-date")
@@ -44,6 +45,16 @@ for exercise in sorted(unique_exercises):
     option.textContent = exercise
     option.value = exercise
     dropdown.appendChild(option)
+
+
+def on_dropdown_change(event):
+    selected_exercise = dropdown.value
+    plot_selected_exercise(selected_exercise)
+
+
+proxy_callback = create_proxy(on_dropdown_change)
+dropdown.addEventListener("change", proxy_callback)
+
 exercises_element.appendChild(dropdown)
 
 num_exercises = workouts_df["exercise"].nunique()
@@ -98,3 +109,50 @@ plt.tight_layout()
 
 working_element.style.display = "none"
 display(plt, target="mpl")
+
+
+def plot_selected_exercise(selected_exercise):
+    if not selected_exercise:
+        return
+
+    plt.clf()
+
+    plt.figure(figsize=(15, 5))  # Smaller figure for the single exercise plot
+
+    # Filter the data for the selected exercise
+    exercise_data = workouts_df[workouts_df["exercise"] == selected_exercise]
+
+    # Plot the data for the selected exercise
+    plt.plot(
+        exercise_data["date"],
+        exercise_data["weight"],
+        marker="o",
+        linestyle="-",
+        color="blue",  # You can change this color if desired
+        label=selected_exercise,
+    )
+
+    # Add text annotations for each point
+    for j in range(len(exercise_data)):
+        plt.text(
+            exercise_data["date"].iloc[j],
+            exercise_data["weight"].iloc[j],
+            f"{exercise_data['weight'].iloc[j]}",
+            fontsize=8,
+            ha="left",
+            va="center",
+        )
+
+    # Set plot title and labels
+    plt.title(f"Weight Progression for {selected_exercise}")
+    plt.xlabel("Date")
+    plt.ylabel("Weight (kg)")
+    plt.xticks(rotation=45)
+    plt.gca().axes.get_xaxis().set_visible(True)  # Show x-axis for this plot
+
+    # Add the legend
+    plt.legend(loc="upper right")
+    plt.tight_layout()
+
+    # Display the plot below the main plot
+    display(plt, target="mpl2")  # Use a different target area for this plot
