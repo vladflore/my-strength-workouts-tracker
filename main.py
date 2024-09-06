@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from pyscript import display
+from pyscript import display, document
 
+
+working_element = document.querySelector('#working')
 
 file_path = "workouts.csv"
 workouts_df = pd.read_csv(file_path)
@@ -31,7 +33,7 @@ for i, exercise in enumerate(workouts_df["exercise"].unique()):
             va="center",
         )
 
-plt.title("Weights Over Time by Exercise")
+plt.title("Weight Progression")
 plt.xlabel("Date")
 plt.ylabel("Weight (kg)")
 plt.xticks(rotation=45)
@@ -39,4 +41,5 @@ plt.xticks(rotation=45)
 plt.legend(title="Exercise", loc="center left", bbox_to_anchor=(1, 0.5), ncol=1)
 plt.tight_layout()
 
+working_element.style.display = 'none'
 display(plt, target="mpl")
