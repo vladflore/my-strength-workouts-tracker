@@ -6,11 +6,20 @@ import matplotlib.colors as mcolors
 from pyscript import display, document
 
 working_element = document.querySelector("#working")
+start_date_element = document.querySelector("#start-date")
+end_date_element = document.querySelector("#end-date")
 
 file_path = "workouts.csv"
 workouts_df = pd.read_csv(file_path)
 
 workouts_df["date"] = pd.to_datetime(workouts_df["date"], format="%d/%m/%Y")
+
+start_date = workouts_df["date"].min()
+end_date = workouts_df["date"].max()
+start_date_formatted = start_date.strftime("%d/%m/%Y")
+end_date_formatted = end_date.strftime("%d/%m/%Y")
+start_date_element.innerHTML = f"Start Tracking Date: {start_date_formatted}"
+end_date_element.innerHTML = f"End Tracking Date: {end_date_formatted}"
 
 plt.figure(figsize=(15, 10))
 
