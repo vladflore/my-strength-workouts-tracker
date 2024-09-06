@@ -41,8 +41,9 @@ default_option.textContent = "Select an exercise"
 default_option.value = ""
 dropdown.appendChild(default_option)
 for exercise in sorted(unique_exercises):
+    max_weight = workouts_df[workouts_df["exercise"] == exercise]["weight"].max()
     option = document.createElement("option")
-    option.textContent = exercise
+    option.textContent = f"{exercise} ({max_weight})"
     option.value = exercise
     dropdown.appendChild(option)
 
@@ -92,7 +93,7 @@ for i, (exercise, exercise_data, color) in enumerate(exercise_data_list):
             va="center",
         )
 
-plt.title("Weight Progression")
+plt.title("Weight Progression for all Exercises")
 plt.xlabel("Date")
 plt.ylabel("Weight (kg)")
 plt.xticks(rotation=45)
@@ -115,24 +116,19 @@ def plot_selected_exercise(selected_exercise):
     if not selected_exercise:
         return
 
-    plt.clf()
+    plt.figure(figsize=(15, 5))
 
-    plt.figure(figsize=(15, 5))  # Smaller figure for the single exercise plot
-
-    # Filter the data for the selected exercise
     exercise_data = workouts_df[workouts_df["exercise"] == selected_exercise]
 
-    # Plot the data for the selected exercise
     plt.plot(
         exercise_data["date"],
         exercise_data["weight"],
         marker="o",
         linestyle="-",
-        color="blue",  # You can change this color if desired
+        color="blue",
         label=selected_exercise,
     )
 
-    # Add text annotations for each point
     for j in range(len(exercise_data)):
         plt.text(
             exercise_data["date"].iloc[j],
@@ -143,16 +139,15 @@ def plot_selected_exercise(selected_exercise):
             va="center",
         )
 
-    # Set plot title and labels
     plt.title(f"Weight Progression for {selected_exercise}")
     plt.xlabel("Date")
     plt.ylabel("Weight (kg)")
     plt.xticks(rotation=45)
-    plt.gca().axes.get_xaxis().set_visible(True)  # Show x-axis for this plot
+    plt.gca().axes.get_xaxis().set_visible(True)
 
-    # Add the legend
-    plt.legend(loc="upper right")
+    plt.legend(loc="center left", bbox_to_anchor=(1, 0.5))
     plt.tight_layout()
 
-    # Display the plot below the main plot
-    display(plt, target="mpl2")  # Use a different target area for this plot
+    mpl2 = document.querySelector("#mpl2")
+    mpl2.innerHTML = ""
+    display(plt, target="mpl2")
