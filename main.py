@@ -8,6 +8,7 @@ from pyscript import display, document
 working_element = document.querySelector("#working")
 start_date_element = document.querySelector("#start-date")
 end_date_element = document.querySelector("#end-date")
+exercises_element = document.querySelector("#exercises")
 
 file_path = "workouts.csv"
 workouts_df = pd.read_csv(file_path)
@@ -32,6 +33,19 @@ for cmap_name in color_maps:
 
 colors = colors[:50]
 
+unique_exercises = workouts_df["exercise"].unique()
+dropdown = document.createElement("select")
+default_option = document.createElement("option")
+default_option.textContent = "Select an exercise"
+default_option.value = ""
+dropdown.appendChild(default_option)
+for exercise in sorted(unique_exercises):
+    option = document.createElement("option")
+    option.textContent = exercise
+    option.value = exercise
+    dropdown.appendChild(option)
+exercises_element.appendChild(dropdown)
+
 num_exercises = workouts_df["exercise"].nunique()
 if num_exercises > len(colors):
     raise ValueError(
@@ -42,7 +56,7 @@ line_style = "-"
 
 exercise_data_list = []
 
-for i, exercise in enumerate(workouts_df["exercise"].unique()):
+for i, exercise in enumerate(unique_exercises):
     exercise_data = workouts_df[workouts_df["exercise"] == exercise]
     exercise_data_list.append((exercise, exercise_data, colors[i]))
 
