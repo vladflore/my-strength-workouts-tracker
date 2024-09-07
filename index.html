@@ -26,7 +26,7 @@
       loading.showModal();
     </script>
 
-    <title>Workouts plotter</title>
+    <title>Workouts tracker</title>
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
   </head>
 
@@ -40,16 +40,16 @@
         <a href="/">
           <img src="./assets/logo.png" class="logo" />
         </a>
-        <a class="title" href="" style="color: #f0ab3c">Workouts plotter</a>
+        <a class="title" href="" style="color: #f0ab3c">Workouts tracker</a>
       </div>
     </nav>
 
     <section class="pyscript">
-      <div id="working">Working...</div>
+      <div id="working">Plotting...</div>
       <div id="mpl"></div>
       <div id="start-date"></div>
       <div id="end-date"></div>
-      <div id="exercises"></div>
+      <div id="exercises" style="margin-bottom: 10px;"></div>
       <div id="mpl2"></div>
       <script type="py" src="./main.py" config="./pyscript.toml"></script>
     </section>
