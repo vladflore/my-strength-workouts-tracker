@@ -141,7 +141,7 @@ def plot_selected_exercise(selected_exercise):
             va="center",
         )
 
-    plt.title(f"Weight Progression for {selected_exercise}")
+    plt.title(f"Weight Progression for '{selected_exercise}'")
     plt.xlabel("Date")
     plt.ylabel("Weight (kg)")
     plt.xticks(rotation=45)
